@@ -1,0 +1,14 @@
+ let node = new SinglyLinkedListNode();   
+       
+    if (head == null){
+        head = new SinglyLinkedListNode(data); 
+    }else{
+        node = head
+        while (node.next != null){
+        node = node.next;
+    }
+    node.next = new SinglyLinkedListNode();
+    node.next.data = data;
+     console.log(node)
+    }
+    return head
