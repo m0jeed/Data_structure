@@ -1,0 +1,36 @@
+function sortedInsert(head, data) {
+   
+    if(head == null) {
+        let nodeA = new DoublyLinkedListNode(data) 
+        return nodeA
+    }
+    
+    let curr = head
+    while(curr != null){
+        if (curr.data >= data){
+            let nodeB = new DoublyLinkedListNode(data)  
+            nodeB.next = curr
+            nodeB.prev = curr.prev
+            
+            curr.prev = nodeB
+            
+         if (nodeB.prev == null){
+                return nodeB;
+            }
+            else {
+                nodeB.prev.next = nodeB;
+                return head;
+            }
+        }
+        if (curr.next == null){
+            let nodeB = new DoublyLinkedListNode(data);
+            nodeB.prev = curr;
+            nodeB.next = null;
+            curr.next = nodeB;
+            break;
+        }
+        curr= curr.next
+    }
+    return head;
+            
+}
